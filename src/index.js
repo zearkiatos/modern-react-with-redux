@@ -1,13 +1,14 @@
 // Import the React and ReactDOM Libraies
-import React from "react";
+import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
+import Comment from "./components/Comment";
 
 // Create a react component
 const App = () => {
   const buttonText = {text: 'Click Me'};
   const labelText = 'Enter Name:';
   return (
-    <div>
+    <Fragment>
       <label className="label" htmlFor="name">
         {labelText}
       </label>
@@ -15,7 +16,13 @@ const App = () => {
       <button style={{ backgroundColor: 'blue', color: 'white' }}>
         {buttonText.text}
       </button>
-    </div>
+      <Comment />
+      <Comment />
+      <Comment />
+      <Comment />
+      <Comment />
+      <Comment />
+    </Fragment>
   );
 };
 
