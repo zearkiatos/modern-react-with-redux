@@ -20,25 +20,31 @@ const App = () => {
           {buttonText.text}
         </button>
       </div>
-      <ApprovalCard />
-      <Comment
-        author={faker.name.firstName()}
-        timeAgo="Today at 4:45PM"
-        avatar={faker.image.avatar()}
-        content={faker.lorem.text()}
-      />
-      <Comment
-        author={faker.name.firstName()}
-        timeAgo="Today at 2:00AM"
-        avatar={faker.image.avatar()}
-        content={faker.lorem.text()}
-      />
-      <Comment
-        author={faker.name.firstName()}
-        timeAgo="Yesterday at 5:00PM"
-        avatar={faker.image.avatar()}
-        content={faker.lorem.text()}
-      />
+      <ApprovalCard>
+        <Comment
+          author={faker.name.firstName()}
+          timeAgo="Today at 4:45PM"
+          avatar={faker.image.avatar()}
+          content={faker.lorem.text()}
+        />
+      </ApprovalCard>
+      <ApprovalCard>
+        <Comment
+          author={faker.name.firstName()}
+          timeAgo="Today at 2:00AM"
+          avatar={faker.image.avatar()}
+          content={faker.lorem.text()}
+        />
+      </ApprovalCard>
+      <ApprovalCard>
+        <Comment
+          author={faker.name.firstName()}
+          timeAgo="Yesterday at 5:00PM"
+          avatar={faker.image.avatar()}
+          content={faker.lorem.text()}
+        />
+      </ApprovalCard>
+
     </Fragment>
   );
 };
