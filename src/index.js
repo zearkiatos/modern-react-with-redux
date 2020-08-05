@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import faker from "faker";
 import Comment from "./components/Comment";
 import ApprovalCard from "./components/ApprovalCard";
+import Season from './components/Season'
 
 // Create a react component
 const App = () => {
@@ -50,6 +51,7 @@ const App = () => {
           content={faker.lorem.text()}
         />
       </ApprovalCard>
+      <Season />
 
     </Fragment>
   );
