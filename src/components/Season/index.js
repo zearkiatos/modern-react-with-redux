@@ -4,7 +4,8 @@ class Season extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            latitude: 40
+            latitude: 0,
+            longitude: 0
         };
 
         window.navigator.geolocation.getCurrentPosition(
