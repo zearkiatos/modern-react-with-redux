@@ -6,56 +6,57 @@ import Comment from "./components/Comment";
 import ApprovalCard from "./components/ApprovalCard";
 import Season from './components/Season'
 
-// Create a react component
-const App = () => {
-  const buttonText = { text: "Click Me" };
-  const labelText = "Enter Name:";
-  return (
-    <Fragment>
-      <div>
-        <label className="label" htmlFor="name">
-          {labelText}
-        </label>
-        <input id="name" type="text" />
-        <button style={{ backgroundColor: "blue", color: "white" }}>
-          {buttonText.text}
-        </button>
-      </div>
-      <ApprovalCard>
+class App extends React.Component {
+  render() {
+    const buttonText = { text: "Click Me" };
+    const labelText = "Enter Name:";
+    return (
+      <Fragment>
         <div>
-          <h4>Warning!</h4>
+          <label className="label" htmlFor="name">
+            {labelText}
+          </label>
+          <input id="name" type="text" />
+          <button style={{ backgroundColor: "blue", color: "white" }}>
+            {buttonText.text}
+          </button>
+        </div>
+        <ApprovalCard>
+          <div>
+            <h4>Warning!</h4>
           Are you sure you want to do this?
         </div>
-      </ApprovalCard>
-      <ApprovalCard>
-        <Comment
-          author={faker.name.firstName()}
-          timeAgo="Today at 4:45PM"
-          avatar={faker.image.avatar()}
-          content={faker.lorem.text()}
-        />
-      </ApprovalCard>
-      <ApprovalCard>
-        <Comment
-          author={faker.name.firstName()}
-          timeAgo="Today at 2:00AM"
-          avatar={faker.image.avatar()}
-          content={faker.lorem.text()}
-        />
-      </ApprovalCard>
-      <ApprovalCard>
-        <Comment
-          author={faker.name.firstName()}
-          timeAgo="Yesterday at 5:00PM"
-          avatar={faker.image.avatar()}
-          content={faker.lorem.text()}
-        />
-      </ApprovalCard>
-      <Season />
+        </ApprovalCard>
+        <ApprovalCard>
+          <Comment
+            author={faker.name.firstName()}
+            timeAgo="Today at 4:45PM"
+            avatar={faker.image.avatar()}
+            content={faker.lorem.text()}
+          />
+        </ApprovalCard>
+        <ApprovalCard>
+          <Comment
+            author={faker.name.firstName()}
+            timeAgo="Today at 2:00AM"
+            avatar={faker.image.avatar()}
+            content={faker.lorem.text()}
+          />
+        </ApprovalCard>
+        <ApprovalCard>
+          <Comment
+            author={faker.name.firstName()}
+            timeAgo="Yesterday at 5:00PM"
+            avatar={faker.image.avatar()}
+            content={faker.lorem.text()}
+          />
+        </ApprovalCard>
+        <Season />
 
-    </Fragment>
-  );
-};
+      </Fragment>
+    );
+  }
+}
 
 // Take the react component and show it on the screen
 //babeljs.io
