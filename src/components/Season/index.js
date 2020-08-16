@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 class Season extends React.Component {
     constructor(props) {
@@ -28,14 +28,23 @@ class Season extends React.Component {
         );
     }
 
-    render(){
-        return (
-            <div>
-                Latitude: {this.state.latitude}
-                <br />
-                Error: {this.state.errorMessage}
-            </div>
-        )
+    render() {
+        if (this.state.error && !this.state.latitude)
+            return (
+            <Fragment>
+                <span> Error: </span>
+                {this.state.errorMessage}
+            </Fragment>
+            )
+
+        if (!this.state.error && this.state.latitude)
+            return (
+                <div>
+                    Latitude: {this.state.latitude}
+                </div>
+            )
+        
+            return <div>Loading... </div>
     }
 }
 
