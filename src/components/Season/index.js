@@ -9,7 +9,10 @@ class Season extends React.Component {
             errorMessage: '',
             error: false
         };
+        this.initialization()
+    }
 
+    initialization() {
         window.navigator.geolocation.getCurrentPosition(
             (position) => {
                 this.setState({
