@@ -1,15 +1,12 @@
 import React, { Fragment } from "react";
 
 class Season extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      latitude: 0,
-      longitude: 0,
-      errorMessage: "",
-      error: false,
-    };
-  }
+  state = {
+    latitude: 0,
+    longitude: 0,
+    errorMessage: "",
+    error: false,
+  };
 
   initialization() {
     window.navigator.geolocation.getCurrentPosition(
