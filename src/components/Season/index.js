@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import SeasonDisplay from './components/SeasonDisplay'
+import Spinner from '../Spinner'
 
 class Season extends React.Component {
   state = {
@@ -41,7 +42,7 @@ class Season extends React.Component {
     if (!this.state.error && this.state.latitude)
       return <SeasonDisplay latitude={this.state.latitude}/>;
 
-    return <div>Loading... </div>;
+    return <Spinner />;
   }
 }
 
