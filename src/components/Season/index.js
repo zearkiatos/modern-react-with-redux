@@ -29,8 +29,7 @@ class Season extends React.Component {
   componentDidMount() {
     this.initialization();
   }
-
-  render() {
+  renderContent = () => {
     if (this.state.error && !this.state.latitude)
       return (
         <Fragment>
@@ -43,6 +42,14 @@ class Season extends React.Component {
       return <SeasonDisplay latitude={this.state.latitude}/>;
 
     return <Spinner message="Please accept location request" />;
+  }
+
+  render() {
+    return (
+      <div className="border red">
+        {this.renderContent()}
+      </div>
+    )
   }
 }
 
