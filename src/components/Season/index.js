@@ -1,51 +1,56 @@
-import React, { Fragment } from 'react';
+import React, { Fragment } from "react";
+import SeasonDisplay from './components/SeasonDisplay'
+import Spinner from '../Spinner'
 
 class Season extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            latitude: 0,
-            longitude: 0,
-            errorMessage: '',
-            error: false
-        };
+  state = {
+    latitude: 0,
+    longitude: 0,
+    errorMessage: "",
+    error: false,
+  };
 
-        window.navigator.geolocation.getCurrentPosition(
-            (position) => {
-                this.setState({
-                    latitude: position.coords.latitude,
-                    error: false,
-                    errorMessage: ''
-                })
-            },
-            (err) => {
-                console.error(err);
-                this.setState({
-                    errorMessage: err.message,
-                    error: true
-                })
-            }
-        );
-    }
+  initialization() {
+    window.navigator.geolocation.getCurrentPosition(
+      (position) =>
+        this.setState({
+          latitude: position.coords.latitude,
+          error: false,
+          errorMessage: "",
+        }),
+      (err) =>
+        this.setState({
+          errorMessage: err.message,
+          error: true,
+        })
+    );
+  }
 
-    render() {
-        if (this.state.error && !this.state.latitude)
-            return (
-            <Fragment>
-                <span> Error: </span>
-                {this.state.errorMessage}
-            </Fragment>
-            )
+  componentDidMount() {
+    this.initialization();
+  }
+  renderContent = () => {
+    if (this.state.error && !this.state.latitude)
+      return (
+        <Fragment>
+          <span> Error: </span>
+          {this.state.errorMessage}
+        </Fragment>
+      );
 
-        if (!this.state.error && this.state.latitude)
-            return (
-                <div>
-                    Latitude: {this.state.latitude}
-                </div>
-            )
-        
-            return <div>Loading... </div>
-    }
+    if (!this.state.error && this.state.latitude)
+      return <SeasonDisplay latitude={this.state.latitude}/>;
+
+    return <Spinner message="Please accept location request" />;
+  }
+
+  render() {
+    return (
+      <div className="border red">
+        {this.renderContent()}
+      </div>
+    )
+  }
 }
 
 export default Season;
