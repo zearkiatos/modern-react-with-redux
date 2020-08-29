@@ -42,7 +42,7 @@ class Season extends React.Component {
     if (!this.state.error && this.state.latitude)
       return <SeasonDisplay latitude={this.state.latitude}/>;
 
-    return <Spinner />;
+    return <Spinner message="Please accept location request" />;
   }
 }
 
