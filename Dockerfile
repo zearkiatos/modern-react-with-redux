@@ -6,10 +6,13 @@ RUN apk add --update nodejs npm
 # set working directory
 WORKDIR /app
 
-COPY . .
+COPY . ./
 
-RUN npm install && \
-    npm install -g nodemon && \
-    npm run start:watch
+RUN npm install --silent
+RUN npm install react-scripts -g --silent
+RUN npm install nodemon -g --silent
+RUN npm install concurrently -g --silent
+
+CMD npm run dev
 
 EXPOSE 3001
