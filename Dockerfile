@@ -9,8 +9,7 @@ WORKDIR /app
 COPY . .
 
 RUN npm install && \
-    npm install -g nodemon
+    npm install -g nodemon && \
+    npm run start:watch
 
 EXPOSE 3001
-
-CMD npm run start:watch
