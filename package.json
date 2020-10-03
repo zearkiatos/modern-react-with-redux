@@ -13,11 +13,13 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
+    "server": "nodemon server.js",
     "start": "react-scripts start",
     "start:watch": "nodemon start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "concurrently \"npm run server\" \"npm run start:watch\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,5 +38,8 @@
   },
   "nodemonConfig": {
     "ext": "js,html,css,json"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
   }
 }
