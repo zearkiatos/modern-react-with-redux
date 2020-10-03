@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './styles/index.css'
 const ImageList = ({ images }) => {
     const imagesRender = images.map(({id, description, urls}) => (
         <img
@@ -7,7 +7,7 @@ const ImageList = ({ images }) => {
             alt={description}
             src={urls.regular}
         />))
-    return <div>{imagesRender}</div>
+    return <div className="image-list">{imagesRender}</div>
 };
 
 export default ImageList;
